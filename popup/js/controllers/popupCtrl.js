@@ -2,6 +2,7 @@ navetApp.controller("PopupController", function($scope, $http) {
 
   $scope.title = "";
   $scope.loading = true;
+  $scope.authError = false;
 
   function getEvents() {
     $scope.title = "Loading events...";
@@ -19,9 +20,11 @@ navetApp.controller("PopupController", function($scope, $http) {
           $scope.title = "Showing " + eventSize + " events";
         }
       })
-      .error(function(error) {
+      .error(function(error, status) {
+        console.log(error);
         $scope.loading = false;
         $scope.title = "Error loading events";
+        $scope.authError = status == 401;
       });
   }
 

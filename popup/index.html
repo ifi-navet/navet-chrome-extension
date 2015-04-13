@@ -28,7 +28,15 @@
         </div>
       </div>
 
-      <div ng-hide="error">
+      <div ng-class="{hidden: !authError}">
+        <div class="login-button">
+          <a href="http://ifinavet.no/login" target="_blank">
+            Click to log in
+          </a>
+        </div>
+      </div>
+
+      <div ng-class="{hidden: authError}">
         <div class="event" ng-repeat="event in events">
 
           <div class="date">

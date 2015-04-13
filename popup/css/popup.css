@@ -79,6 +79,21 @@ body {
     background: red;
 }
 
+.login-button {
+    margin: 20px;
+    padding: 10px;
+    background: red;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+.login-button a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .spinning {
     -webkit-animation: spin 0.4s infinite linear;
 }
@@ -86,4 +101,8 @@ body {
 @-webkit-keyframes spin {
     0%  {-webkit-transform: rotate(0deg);}
     100% {-webkit-transform: rotate(360deg);}
+}
+
+.hidden {
+    display: none;
 }
