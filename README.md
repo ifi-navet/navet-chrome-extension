@@ -6,7 +6,7 @@ View upcomming events for Navet right in your Chrome browser.
 ## Install
 Clone this repository: `$ git clone git@github.com:ifi-navet/navet-chrome-extension.git`
 
-Run `bower install`
+Run `bower install` to fetch depenencies.
 
 Enable Developer Mode in Chrome Extensions: open [`chrome://extensions/`](chrome://extensions/) and check `Developer mode`
 
