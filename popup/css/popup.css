@@ -60,6 +60,11 @@ a {
     font-size: 16px;
 }
 
+.event .company {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 .event .company-image img {
     width: 60px;
     float: right;
@@ -89,6 +94,10 @@ a {
 
 .event .signup.full {
     background: red;
+}
+
+.event .signup.not-required {
+    background: #777;
 }
 
 .login-button {
