@@ -5,6 +5,7 @@
 
     <!-- Required libraries -->
     <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
 
     <!-- Application files -->
     <script src="js/app.js"></script>
@@ -20,7 +21,7 @@
 
       <div class="status">
         <div class="reload-button" ng-click="reload()">
-          Reload
+          <img ng-class="{spinning: loading}" src="../refresh_white.png">
         </div>
         <div class="info">
           {{title}}
@@ -29,7 +30,13 @@
 
       <div ng-hide="error">
         <div class="event" ng-repeat="event in events">
-          <a href="http://ifinavet.no/event/{{event.id}}" target="_blank">
+
+          <div class="date">
+            {{moment(event.date)}}
+          </div>
+
+          <a href="http://ifinavet.no/event/{{event.id}}"
+             target="_blank">
             <div class="title">
               {{event.title}}
             </div>
@@ -41,9 +48,6 @@
             </div>
           </a>
 
-          <div class="date">
-            {{event.date}}
-          </div>
           <div class="teaser">
             {{event.teaser}}
           </div>

@@ -12,8 +12,15 @@ body {
 }
 
 .header .logo {
-    height: 40px;
+    height: 30px;
     margin: 20px;
+}
+
+.header .homepage {
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    padding: 5px;
 }
 
 .status {
@@ -30,10 +37,13 @@ body {
 }
 
 .status .reload-button {
-    background: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    height: 20px;
     float: right;
+}
+
+.reload-button img {
+    width: 20px;
+    height: 20px;
 }
 
 .event {
@@ -43,6 +53,12 @@ body {
 
 .event .title {
     font-size: 16px;
+}
+
+.event .date {
+    font-weight: bold;
+    float: right;
+    padding: 5px;
 }
 
 .event .teaser {
@@ -61,4 +77,13 @@ body {
 
 .event .signup .full {
     background: red;
+}
+
+.spinning {
+    -webkit-animation: spin 0.4s infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
 }
