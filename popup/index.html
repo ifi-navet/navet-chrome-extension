@@ -59,9 +59,8 @@
           <div class="teaser">
             {{event.teaser}}
           </div>
-          <div class="signup"
-               ng-class="event.attending >= event.limit: full">
-            {{event.limit - event.attending}} ledige plasser
+          <div class="signup" ng-class="{full: availableSpots(event) == 0}">
+            {{availableSpots(event)}} ledige plasser
           </div>
         </div>
       </div>

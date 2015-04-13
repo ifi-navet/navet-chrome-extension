@@ -31,9 +31,17 @@ navetApp.controller("PopupController", function($scope, $http) {
     getEvents();
   }
 
-
-  $scope.moment = function getMoment(date) {
+  $scope.moment = function(date) {
     return moment(date, "DD.MM.YYYY - hh:mm").fromNow();
+  }
+
+  // Events can be overbooked
+  $scope.availableSpots = function(event) {
+    var available = event.limit - event.attending;
+    if (available < 0)
+      return 0;
+
+    return available;
   }
 
   getEvents();
