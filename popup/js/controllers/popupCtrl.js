@@ -21,7 +21,6 @@ navetApp.controller("PopupController", function($scope, $http) {
         }
       })
       .error(function(error, status) {
-        console.log(error);
         $scope.loading = false;
         $scope.title = "Error loading events";
         $scope.authError = status == 401;
