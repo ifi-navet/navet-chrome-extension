@@ -1,0 +1,64 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, Sans-serif;
+    font-size: 12px;
+    width: 350px;
+}
+
+.header {
+    background: #000000;
+    text-align: center;
+}
+
+.header .logo {
+    height: 40px;
+    margin: 20px;
+}
+
+.status {
+    background: #30486c;
+    color: #fff;
+    min-height: 40px;
+}
+
+.status .info {
+    float:left;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.status .reload-button {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    height: 20px;
+    float: right;
+}
+
+.event {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.event .title {
+    font-size: 16px;
+}
+
+.event .teaser {
+    font-size: 12px;
+}
+
+.event .signup {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background: green;
+}
+
+.event .signup .full {
+    background: red;
+}

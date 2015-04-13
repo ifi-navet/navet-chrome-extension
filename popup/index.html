@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="NavetPopupApp">
+  <head>
+    <link rel="stylesheet" href="css/popup.css">
+
+    <!-- Required libraries -->
+    <script src="../bower_components/angular/angular.min.js"></script>
+
+    <!-- Application files -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/popupCtrl.js"></script>
+
+  </head>
+
+  <body ng-controller="PopupController">
+    <div>
+      <div class="header">
+        <img class="logo" src="../logo-white.png">
+      </div>
+
+      <div class="status">
+        <div class="reload-button" ng-click="reload()">
+          Reload
+        </div>
+        <div class="info">
+          {{title}}
+        </div>
+      </div>
+
+      <div ng-hide="error">
+        <div class="event" ng-repeat="event in events">
+          <a href="http://ifinavet.no/event/{{event.id}}" target="_blank">
+            <div class="title">
+              {{event.title}}
+            </div>
+          </a>
+
+          <a href="http://ifinavet.no/company/{{event.companyId}}" target="_blank">
+            <div class="company">
+              {{event.companyName}}
+            </div>
+          </a>
+
+          <div class="date">
+            {{event.date}}
+          </div>
+          <div class="teaser">
+            {{event.teaser}}
+          </div>
+          <div class="signup"
+               ng-class="event.attending >= event.limit: full">
+            {{event.limit - event.attending}} ledige plasser
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
