@@ -1,4 +1,4 @@
-angular.module("NavetApp").factory("BadgeDateFactory", function() {
+angular.module("NavetAppBg").factory("BadgeDateFactory", function() {
 
   var timeSizes = {
     "now":     { text: "NOW", size: 0 },

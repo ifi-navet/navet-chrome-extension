@@ -1,34 +1,57 @@
-angular.module("NavetApp").controller("PopupController", function($scope, $http, EventService) {
+angular.module("NavetApp").controller("PopupController", function($scope, $timeout) {
 
-  $scope.title = "";
-  $scope.loading = true;
-  $scope.authError = false;
+  var status = {
+    authError: false,
+    loading: false,
+    title: ""
+  };
+
+  $scope.status = status;
+
+  function setEvents(events) {
+    $scope.events = events;
+
+    if (!events || events.length == 0) {
+      status.title = "No upcomming events";
+    } else {
+      status.title = "Showing " + events.length + " events";
+    }
+  }
 
   function getEvents() {
-    $scope.title = "Loading...";
-    $scope.loading = true;
+    var events = window.getEvents();
+    if (!events) {
+      fetchEvents();
+    } else {
+      setEvents(events);
+    }
+  }
 
-    EventService.getUpcommingEvents(
+  function fetchEvents() {
+    status.title = "Loading...";
+    status.loading = true;
+
+    window.fetchEvents(
       function(data) {
-        $scope.events = data.events;
-        $scope.loading = false;
-        var eventSize = data.events.length;
-
-        if (eventSize == 0) {
-          $scope.title = "No upcomming events";
-        } else {
-          $scope.title = "Showing " + eventSize + " events";
-        }
+        status.loading = false;
+        status.authError = false;
+        setEvents(data.events);
+        // Async call, must call $apply to update bindings
+        $scope.$apply();
       },
-      function(error, status) {
-        $scope.loading = false;
-        $scope.title = "Error loading events";
-        $scope.authError = status == 401;
+      function(error, statusCode) {
+        status.title = "Error loading events";
+        status.loading = false;
+        status.authError = statusCode == 401;
+
+        // Async call, must call $apply to update bindings
+        $scope.$apply();
+
       });
   }
 
   $scope.reload = function() {
-    getEvents();
+    fetchEvents();
   }
 
   $scope.moment = function(date) {
