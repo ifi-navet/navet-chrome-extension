@@ -1,1 +1,1 @@
-var navetApp = angular.module("NavetPopupApp", []);
+var navetApp = angular.module("NavetApp", []);

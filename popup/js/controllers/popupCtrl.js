@@ -1,15 +1,15 @@
-navetApp.controller("PopupController", function($scope, $http) {
+angular.module("NavetApp").controller("PopupController", function($scope, $http, EventService) {
 
   $scope.title = "";
   $scope.loading = true;
   $scope.authError = false;
 
   function getEvents() {
-    $scope.title = "Loading events...";
+    $scope.title = "Loading...";
     $scope.loading = true;
 
-    $http.get("http://ifinavet.no/api/events")
-      .success(function(data) {
+    EventService.getUpcommingEvents(
+      function(data) {
         $scope.events = data.events;
         $scope.loading = false;
         var eventSize = data.events.length;
@@ -19,8 +19,8 @@ navetApp.controller("PopupController", function($scope, $http) {
         } else {
           $scope.title = "Showing " + eventSize + " events";
         }
-      })
-      .error(function(error, status) {
+      },
+      function(error, status) {
         $scope.loading = false;
         $scope.title = "Error loading events";
         $scope.authError = status == 401;
