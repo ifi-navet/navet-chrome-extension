@@ -26,7 +26,7 @@ angular.module("NavetAppBg").factory("BadgeDateFactory", function() {
       }
 
       if (seconds / size.size >= 1) {
-        return Math.floor(seconds/size.size) + size.text;
+        return Math.round(seconds/size.size) + size.text;
       }
     }
 
